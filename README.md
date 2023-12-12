@@ -15,8 +15,12 @@ The package has been installed on a server with intel i9 core for convenience.
 4.   Please contact lg625@cornell.edu for any issues and concerns. Thank you for your cooperation!
 
 
+Please refer to the pdf file in the repo as the manual of the package.
 
-If you want to install the package on the server, you can install the `balancedrandomforest.tar.gz` in `/home` folder.
+
+If you want to install the package on the server, please download the `balancedrandomforest.tar.gz` in the repo and install it in your own machine. 
+
+Thanks!
 
 
 
