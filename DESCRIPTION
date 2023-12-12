@@ -1,0 +1,17 @@
+Package: balancedrandomforest
+Type: Package
+Title: Refined random forest algorithms for imblanced binary classification
+Version: 0.1.0
+Author: Lin Gui and Siyu Kong
+Maintainer: Lin Gui <lg625@cornell.edu> Siyu Kong <sk6666@cornell.edu>
+Description: Conduct classfication using different variants of random forest and make comparison.
+    Run the `demo.R` and `demo_clustered.R` to see the examples.
+Encoding: UTF-8
+License: TBA
+LazyData: true
+Imports:
+  MASS,
+  randomForest,
+  ggplot2,
+  gridExtra
+RoxygenNote: 7.2.3

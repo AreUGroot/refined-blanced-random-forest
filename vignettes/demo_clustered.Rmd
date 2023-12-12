@@ -1,0 +1,99 @@
+---
+title: "demo_Clustered"
+author: "Lin Gui and Siyu Kong"
+date: "2023-12-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **Load the package**
+
+```{r}
+require('balancedrandomforest')
+```
+
+**Generate the data**
+
+```{r}
+# Set seed for reproducibility
+set.seed(123)
+# ------------------ Generate simulated data -------------------
+
+# Specify the sample size
+n_train_zero <- 4000
+n_train_one <- 500
+n_train_two <- 500
+
+# Specify the parameters
+choice <- 4
+mean_dist <- 1.5
+parameters <- get_mean_covariance_clustered(choice, mean_dist)
+all_data <- generate_clustered_data(parameters, n_train_zero, n_train_one, n_train_two)
+train_data <- all_data$train_data
+test_data <- all_data$test_data
+```
+
+**Plot the data**
+
+```{r}
+# Plot points
+plot_clustered_points(train_data, n_train_zero, n_train_one, n_train_two)
+```
+
+**Fit the data with different versions of random forest**
+
+```{r}
+# ----------------  Fit the data with different versions of random forest -------------
+# Fit with random forest
+method <- "rf"
+rf_results <- fit_random_forest_clustered(train_data, test_data, "rf")
+rf_model <- rf_results$model
+rf_measure <- rf_results$measure
+print(rf_measure)
+
+
+# Modify the random forest with prior
+prior_measure <- modify_rf_with_prior(rf_model, n_train_zero / (n_train_zero + n_train_one + n_train_two), test_data)
+print(prior_measure)
+
+# Fit with weighted random forest
+method <- "wrf"
+wrf_results <- fit_random_forest_clustered(train_data, test_data, "wrf")
+wrf_model <- wrf_results$model
+wrf_measure <- wrf_results$measure
+print(wrf_measure)
+
+# Fit with balanced random forest
+method <- "brf"
+brf_results <- fit_random_forest_clustered(train_data, test_data, "brf")
+brf_model <- brf_results$model
+brf_measure <- brf_results$measure
+print(brf_measure)
+
+# Fit with modified balanced random forest with method I
+method <- "brf1"
+brf1_results <- fit_random_forest_clustered(train_data, test_data, "brf1")
+brf1_model <- brf1_results$model
+brf1_measure <- brf1_results$measure
+print(brf1_measure)
+
+# Fit with modified balanced random forest with method II
+method <- "brf2"
+brf2_results <- fit_random_forest_clustered(train_data, test_data, "brf2")
+brf2_model <- brf2_results$model
+brf2_measure <- brf2_results$measure
+print(brf2_measure)
+```
+
+**Visualize the results**
+
+```{r}
+# ---------------------- Visualize the results -----------------------
+
+draw_six_clustered(test_data, rf_model, wrf_model, brf_model, brf1_model, brf2_model, n_train_zero / (n_train_zero + n_train_one))
+
+draw_three_clustered(test_data, brf_model, brf1_model, brf2_model)
+```

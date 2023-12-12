@@ -1,0 +1,26 @@
+{
+    "id": "1F595507",
+    "path": "~/Desktop/6520_project/balancedrandomforest/demo/demo_clustered.R",
+    "project_path": "demo/demo_clustered.R",
+    "type": "r_source",
+    "hash": "2248307286",
+    "contents": "",
+    "dirty": false,
+    "created": 1702324277309.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "6,64",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1702323641,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1702323641,
+    "read_only": false,
+    "read_only_alternatives": []
+}
