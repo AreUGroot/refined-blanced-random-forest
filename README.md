@@ -12,7 +12,9 @@ The package has been installed on a server with intel i9 core for convenience.
 
 3.   Run the code. You can change the `choice` and `mean_dist` to allow different settings of distributions.
 
-4.   Please contact lg625@cornell.edu for any issues and concerns. Thank you for your cooperation!
+     > Since the server has a small memory, please run `rm(list = ls())` to clear cache at the beginning of each setting.
+     > If the server breaks down unfortunately, please refresh the page and start it again. Sometimes entering into *safe mode* is useful.
+     > Please contact lg625@cornell.edu for any issues and concerns. Thank you for your cooperation!
 
 
 Please refer to the pdf file in the repo as the manual of the package.
